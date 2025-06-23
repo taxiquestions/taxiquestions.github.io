@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taxi Math Problems</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #ff6b6b, #ffa500);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '🚕';
+            position: absolute;
+            font-size: 80px;
+            opacity: 0.1;
+            top: 50%;
+            left: 20%;
+            transform: translateY(-50%);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .header::after {
+            content: '🚖';
+            position: absolute;
+            font-size: 60px;
+            opacity: 0.1;
+            top: 20%;
+            right: 15%;
+            animation: float 4s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(-50%) rotate(0deg); }
+            50% { transform: translateY(-60%) rotate(5deg); }
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .topics-nav {
+            background: #f8f9fa;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .topic-btn {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .topic-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .topic-btn.active {
+            background: linear-gradient(45deg, #ff6b6b, #ffa500);
+            transform: translateY(-2px);
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .topic-section {
+            display: none;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        .topic-section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .topic-title {
+            color: #333;
+            font-size: 2em;
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+        }
+
+        .topic-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(45deg, #ff6b6b, #ffa500);
+            border-radius: 2px;
+        }
+
+        .problem-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            border-left: 5px solid #667eea;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .problem-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #667eea, #764ba2, #ff6b6b, #ffa500);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .problem-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+        }
+
+        .problem-card:hover::before {
+            opacity: 1;
+        }
+
+        .problem-question {
+            font-size: 1.1em;
+            line-height: 1.6;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .answer-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .answer {
+            background: linear-gradient(45deg, #28a745, #20c997);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 1.1em;
+            box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+        }
+
+        .show-answer-btn {
+            background: linear-gradient(45deg, #17a2b8, #6f42c1);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .show-answer-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .answer.hidden {
+            display: none;
+        }
+
+        .stats {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            margin-top: 30px;
+            border-radius: 15px;
+        }
+
+        .stats h3 {
+            margin-bottom: 10px;
+            font-size: 1.5em;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .problem-card {
+                padding: 20px;
+            }
+            
+            .answer-section {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚕 Taxi Math Problems</h1>
+            <p>Master time calculations with these interactive practice problems!</p>
+        </div>
+
+        <div class="topics-nav">
+            <button class="topic-btn active" onclick="showTopic(1)">Calculating Arrival Time</button>
+            <button class="topic-btn" onclick="showTopic(2)">Latest Pickup Time</button>
+            <button class="topic-btn" onclick="showTopic(3)">Journey Duration</button>
+            <button class="topic-btn" onclick="showTopic(4)">Multi-Stop & Delays</button>
+        </div>
+
+        <div class="content">
+            <!-- Topic 1: Calculating Arrival Time -->
+            <div id="topic1" class="topic-section active">
+                <h2 class="topic-title">Topic 1: Calculating Arrival Time</h2>
+                
+                <div class="problem-card">
+                    <div class="problem-question">A taxi departs from your home at 7:45 AM for an airport transfer. The driver estimates the journey will take 50 minutes. What time should you expect to arrive at the airport?</div>
+                    <div class="answer-section">
+                        <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                        <div class="answer hidden">08:35 AM</div>
+                    </div>
+                </div>
+
+                <div class="problem-card">
+                    <div class="problem-question">Your taxi leaves the hotel at 11:10 AM to take you to a sightseeing spot. The ride is 28 minutes long. What time will you reach the sightseeing spot?</div>
+                    <div class="answer-section">
+                        <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                        <div class="answer hidden">11:38 AM</div>
+                    </div>
+                </div>
+
+                <div class="problem-card">
+                    <div class="problem-question">A passenger gets into a taxi at 6:05 PM for a cross-city trip that typically takes 1 hour and 15 minutes. What time will they arrive?</div>
+                    <div class="answer-section">
+                        <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                        <div class="answer hidden">07:20 PM</div>
+                    </div>
+                </div>
+
+                <div class="problem-card">
+                    <div class="problem-question">The taxi picks you up at 2:30 PM. The estimated journey time to your friend's house is 40 minutes. What time will you arrive at your friend's house?</div>
+                    <div class="answer-section">
+                        <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                        <div class="answer hidden">03:10 PM</div>
+                    </div>
+                </div>
+
+                <div class="problem-card">
+                    <div class="problem-question">A taxi leaves the train station at 9:55 AM. The journey to the conference centre is 1 hour and 5 minutes. What time will the taxi arrive at the conference centre?</div>
+                    <div class="answer-section">
+                        <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                        <div class="answer hidden">11:00 AM</div>
+                    </div>
+                </div>
+
+                <div class="problem-card">
+                    <div class="problem-question">You book a taxi for 1:20 PM. The destination is a restaurant, and the journey is projected to take 22 minutes. At what time will you arrive at the restaurant?</div>
+                    <div class="answer-section">
+                        <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                        <div class="answer hidden">01:42 PM</div>
+                    </div>
+                </div>
+
+                <div class="problem-card">
+                    <div class="problem-question">A taxi collecting a parcel starts its journey at 3:15 PM. The delivery address is 1 hour and 10 minutes away. What time will the parcel be delivered?</div>
+                    <div class="answer-section">
+                        <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                        <div class="answer hidden">04:25 PM</div>
+                    </div>
+                </div>
+
+                <div class="problem-card">
+                    <div class="problem-question">Leaving a concert, your taxi departs at 10:40 PM. Your home is 35 minutes away by taxi. What time will you get home?</div>
+                    <div class="answer-section">
+                        <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                        <div class="answer hidden">11:15 PM</div>
+                    </div>
+                </div>
+
+                <div class="problem-card">
+                    <div class="problem-question">A tourist takes a taxi from their hotel at 8:00 AM for a 45-minute ride to a historical site. What time will they reach the site?</div>
+                    <div class="answer-section">
+                        <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                        <div class="answer hidden">08:45 AM</div>
+                    </div>
+                </div>
+
+                <div class="problem-card">
+                    <div class="problem-question">Your taxi leaves a meeting at 4:50 PM. The ride back to the office is expected to take 1 hour and 8 minutes. What time will you arrive back at the office?</div>
+                    <div class="answer-section">
+                        <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                        <div class="answer hidden">05:58 PM</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Topic 2: Latest Pickup Time -->
+            <div id="topic2" class="topic-section">
+                <h2 class="topic-title">Topic 2: Determining Latest Pickup Time</h2>
+                
+                <div class="problem-card">
+                    <div class="problem-question">You have a train departing at 10:00 AM. The taxi ride to the station takes 25 minutes, and you want to be there 30 minutes before departure. What's the latest time your taxi should pick you up?</div>
+                    <div class="answer-section">
+                        <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                        <div class="answer hidden">09:05 AM</div>
+                    </div>
+                </div>
+
+                <div class="problem-card">
+                    <div class="problem-question">Your flight boards at 3:30 PM. You need to be at the airport 2 hours before boarding. The taxi ride is 40 minutes. What is the latest time the taxi should pick you up from your home?</div>
+                    <div class="answer-section">
+                        <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                        <div class="answer hidden">12:50 PM</div>
+                    </div>
+                </div>
+
+                <div class="problem-card">
+                    <div class="problem-question">An important job interview is scheduled for 11:15 AM. You want to arrive 15 minutes early, and the taxi journey is 20 minutes long. What is the latest time you should book your taxi?</div>
+                    <div class="answer-section">
+                        <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                        <div class="answer hidden">10:40 AM</div>
+                    </div>
+                </div>
+
+                <div class="problem-card">
+                    <div class="problem-question">You need to check into your hotel by 6:00 PM. The taxi journey from the airport takes 1 hour and 10 minutes. What is the latest time you should get into the taxi at the airport?</div>
+                    <div class="answer-section">
+                        <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                        <div class="answer hidden">04:50 PM</div>
+                    </div>
+                </div>
+
+                <div class="problem-card">
+                    <div class="problem-question">A show starts at 7:00 PM. You want to be in your seat by 6:45 PM. The taxi ride from your current location takes 30 minutes. What's the latest time you should request the taxi to pick you up?</div>
+                    <div class="answer-section">
+                        <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                        <div class="answer hidden">06:15 PM</div>
+                    </div>
+                </div>
+
+                <div class="problem-card">
+                    <div class="problem-question">You have a dinner reservation at 8:30 PM. It will take you 10 minutes to walk from the taxi drop-off to the restaurant entrance. The taxi ride is 25 minutes. What is the latest time the taxi should pick you up?</div>
+                    <div class="answer-section">
+                        <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                        <div class="answer hidden">07:55 PM</div>
+                    </div>
+                </div>
+
+                <div class="problem-card">
+                    <div class="problem-question">A guided tour begins promptly at 9:15 AM. The taxi journey to the meeting point is 45 minutes, and you need to be there 5 minutes before the start. What's the latest time for your taxi pickup?</div>
+                    <div class="answer-section">
+                        <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                        <div class="answer hidden">08:25 AM</div>
+                    </div>
+                </div>
+
+                <div class="problem-card">
+                    <div class="problem-question">You need to be at a family gathering by 12:45 PM. The taxi ride there usually takes 55 minutes. What is the latest time you should call for a taxi?</div>
+                    <div class="answer-section">
+                        <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                        <div class="answer hidden">11:50 AM</div>
+                    </div>
+                </div>
+
+                <div class="problem-card">
+                    <div class="problem-question">Your appointment is at 2:00 PM. You'd like to arrive 10 minutes early. The taxi journey to the location is 18 minutes. What is the latest time you should depart in the taxi?</div>
+                    <div class="answer-section">
+                        <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                        <div class="answer hidden">01:32 PM</div>
+                    </div>
+                </div>
+
+                <div class="problem-card">
+                    <div class="problem-question">A cruise ship departs at 5:00 PM. Passengers must be onboard at least 1 hour and 30 minutes before departure. The taxi ride to the port takes 40 minutes. What is the latest time you should be picked up by the taxi?</div>
+                    <div class="answer-section">
+                        <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                        <div class="answer hidden">02:50 PM</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Topic 3: Journey Duration -->
+            <div id="topic3" class="topic-section">
+                <h2 class="topic-title">Topic 3: Figuring Out Journey Duration</h2>
+                
+                <div class="problem-card">
+                    <div class="problem-question">A taxi picked you up at 6:30 AM and dropped you off at your office at 7:15 AM. How long was your taxi journey?</div>
+                    <div class="answer-section">
+                        <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                        <div class="answer hidden">45 minutes</div>
+                    </div>
+                </div>
+
+                <div class="problem-card">
+                    <div class="problem-question">You got into a taxi at 1:50 PM and arrived at the museum at 2:35 PM. How long did the taxi journey last?</div>
+                    <div class="answer-section">
+                        <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                        <div class="answer hidden">45 minutes</div>
+                    </div>
+                </div>
+
+                <div class="problem-card">
+                    <div class="problem-question">A taxi driver started a fare at 11:00 AM and completed it at 12:08 PM. What was the duration of that taxi journey?</div>
+                    <div class="answer-section">
+                        <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                        <div class="answer hidden">1 hour and 8 minutes</div>
+                    </div>
+                </div>
+
+                <div class="problem-card">
+                    <div class="problem-question">If a taxi collected a passenger at 9:05 PM and delivered them to their home at 9:43 PM, how long was the ride?</div>
+                    <div class="answer-section">
+                        <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                        <div class="answer hidden">38 minutes</div>
+                    </div>
+                </div>
+
+                <div class="problem-card">
+                    <div class="problem-question">Your taxi left the restaurant at 7:25 PM and pulled up to your hotel at 8:00 PM. How many minutes did the taxi journey take?</div>
+                    <div class="answer-section">
+                        <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                        <div class="answer hidden">35 minutes</div>
+                    </div>
+                </div>
+
+                <div class="problem-card">
+                    <div class="problem-question">A customer was picked up by taxi at 3:40 PM and arrived at their destination at 4:30 PM. What was the total travel time?</div>
+                    <div class="answer-section">
+                        <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                        <div class="answer hidden">50 minutes</div>
+                    </div>
+                </div>
+
+                <div class="problem-card">
+                    <div class="problem-question">A taxi driver recorded a journey starting at 10:15 AM and ending at 11:02 AM. How long did the journey take?</div>
+                    <div class="answer-section">
+                        <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                        <div class="answer hidden">47 minutes</div>
+                    </div>
+                </div>
+
+                <div class="problem-card">
+                    <div class="problem-question">From the moment you stepped into the taxi at 5:10 PM until you reached the airport at 5:58 PM, how much time passed?</div>
+                    <div class="answer-section">
+                        <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                        <div class="answer hidden">48 minutes</div>
+                    </div>
+                </div>
+
+                <div class="problem-card">
+                    <div class="problem-question">A taxi picked up a delivery at 12:30 PM and dropped it off at 1:17 PM. How long was the delivery journey?</div>
+                    <div class="answer-section">
+                        <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                        <div class="answer hidden">47 minutes</div>
+                    </div>
+                </div>
+
+                <div class="problem-card">
+                    <div class="problem-question">You entered a taxi at 8:45 AM and exited at 9:20 AM. What was the exact duration of your taxi ride?</div>
+                    <div class="answer-section">
+                        <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                        <div class="answer hidden">35 minutes</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Topic 4: Multi-Stop Journeys -->
+            <div id="topic4" class="topic-section">
+                <h2 class="topic-title">Topic 4: Multi-Stop Journeys / Delays / Cumulative Time</h2>
+                
+                <div class="problem-card">
+                    <div class="problem-question">A taxi journey involves dropping off one passenger, which takes 10 minutes, before taking you to your final destination. The ride to the first drop-off takes 15 minutes, and the rest of the journey takes 35 minutes. If the taxi picks you up at 9:00 AM, what time will you arrive at your final destination?</div>
+                    <div class="answer-section">
+                        <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                        <div class="answer hidden">10:00 AM</div>
+                    </div>
+                </div>
+
+                <div class="problem-card">
+                    <div class="problem-question">Your taxi was scheduled to pick you up at 11:00 AM for a 40-minute journey to the airport. Due to a flat tyre, the pickup was delayed by 15 minutes, and the journey itself took an extra 5 minutes due to a detour. What time did you actually arrive at the airport?</div>
+                    <div class="answer-section">
+                        <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                        <div class="answer hidden">12:00 PM</div>
+                    </div>
+                </div>
+
+                <div class="problem-card">
+                    <div class="problem-question">A taxi driver completed three short fares: the first was 12 minutes, the second was 20 minutes, and the third was 8 minutes. How much total driving time did these three fares take?</div>
+                    <div class="answer-section">
+                        <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                        <div class="answer hidden">40 minutes</div>
+                    </div>
+                </div>
+
+                <div class="problem-card">
+                    <div class="problem-question">You get in a taxi at 2:00 PM. The driver first has to pick up another person, which adds 5 minutes to the journey. The first leg to the other person's house is 15 minutes. From there, the joint journey to your final destination is 30 minutes. What time will you arrive?</div>
+                    <div class="answer-section">
+                        <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                        <div class="answer hidden">02:50 PM</div>
+                    </div>
+                </div>
+
+                <div class="problem-card">
+                    <div class="problem-question">Your taxi journey home typically takes 45 minutes. Today, there's heavy traffic, which adds 20 minutes to the journey. If you leave work at 5:00 PM, what time will you get home by taxi?</div>
+                    <div class="answer-section">
+                        <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                        <div class="answer hidden">06:05 PM</div>
+                    </div>
+                </div>
+
+                <div class="problem-card">
+                    <div class="problem-question">A taxi takes you from your hotel to a museum (18 minutes), then waits 5 minutes, then takes you to a restaurant (12 minutes). If you left the hotel at 10:00 AM, what time did you arrive at the restaurant?</div>
+                    <div class="answer-section">
+                        <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                        <div class="answer hidden">10:35 AM</div>
+                    </div>
+                </div>
+
+                <div class="problem-card">
+                    <div class="problem-question">You called a taxi for 7:30 AM, but it was 10 minutes late. The journey to your appointment was supposed to be 25 minutes, but due to roadworks, it took an additional 15 minutes. What time did you arrive for your appointment?</div>
+                    <div class="answer-section">
+                        <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                        <div class="answer hidden">08:20 AM</div>
+                    </div>
+                </div>
+
+                <div class="problem-card">
+                    <div class="problem-question">A taxi driver spent 1 hour 10 minutes on fares in the morning, took a 30-minute break, then spent another 55 minutes on fares. How much total time (driving and break) did the driver spend over this period?</div>
+                    <div class="answer-section">
+                        <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                        <div class="answer hidden">2 hours and 35 minutes</div>
+                    </div>
+                </div>
+
+                <div class="problem-card">
+                    <div class="problem-question">Your taxi journey consists of picking up your luggage from a storage facility (5 minutes wait), then a 15-minute drive to the facility, followed by a 25-minute drive to the airport. If the taxi picks you up at 6:40 AM, what time will you arrive at the airport?</div>
+                    <div class="answer-section">
+                        <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                        <div class="answer hidden">07:25 AM</div>
+                    </div>
+                </div>
+
+                <div class="problem-card">
+                    <div class="problem-question">A taxi was booked for 4:00 PM for a 30-minute journey. However, the driver was stuck in traffic for 20 minutes before even reaching your pickup point. After picking you up, the journey itself took the usual 30 minutes. What time did you actually arrive at your destination?</div>
+                    <div class="answer-section">
+                        <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                        <div class="answer hidden">04:50 PM</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stats">
+                <h3>🎯 Practice Makes Perfect!</h3>
+                <p>Total Problems: 40 | Topics: 4 | Click "Show Answer" to reveal solutions</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showTopic(topicNum) {
+            // Hide all topic sections
+            const sections = document.querySelectorAll('.topic-section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // Remove active class from all buttons
+            const buttons = document.querySelectorAll('.topic-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('active');
+            });
+
+            // Show selected topic
+            document.getElementById('topic' + topicNum).classList.add('active');
+            
+            // Add active class to clicked button
+            event.target.classList.add('active');
+
+            // Scroll to top of content
+            document.querySelector('.content').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function toggleAnswer(button) {
+            const answerDiv = button.parentElement.querySelector('.answer');
+            
+            if (answerDiv.classList.contains('hidden')) {
+                answerDiv.classList.remove('hidden');
+                button.textContent = 'Hide Answer';
+                button.style.background = 'linear-gradient(45deg, #dc3545, #fd7e14)';
+            } else {
+                answerDiv.classList.add('hidden');
+                button.textContent = 'Show Answer';
+                button.style.background = 'linear-gradient(45deg, #17a2b8, #6f42c1)';
+            }
+        }
+
+        // Add some interactive enhancements
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add hover effects to problem cards
+            const problemCards = document.querySelectorAll('.problem-card');
+            problemCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+
+            // Add click sound effect simulation
+            const buttons = document.querySelectorAll('button');
+            buttons.forEach(button => {
+                button.addEventListener('click', function() {
+                    this.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1)';
+                    }, 100);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
