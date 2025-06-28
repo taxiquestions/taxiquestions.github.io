@@ -160,6 +160,7 @@
         <h1><span class="taxi-icon">🚕</span>Taxi Speed Calculation Questions</h1>
         
         <div class="controls">
+            <!-- Buttons to switch between topics -->
             <button class="control-btn active-topic" onclick="showTopic(1)">Topic 1</button>
             <button class="control-btn" onclick="showTopic(2)">Topic 2</button>
             <button class="control-btn" onclick="showTopic(3)">Topic 3</button>
@@ -167,506 +168,542 @@
             <button class="control-btn" onclick="showTopic(5)">Topic 5</button>
         </div>
         
-        <div id="topic-5" class="topic-section" style="display: none;">
-        <div class="question-card">
-            <div class="question-header">
-                <div class="question-number">1</div>
-                <div class="question">A taxi driver completes 7 fares, and each fare averages £12.50. What's the total amount earned from these fares?</div>
-            </div>
-            <button class="show-answer-btn" onclick="toggleAnswer('5-1')">Show Answer</button>
-            <div class="answer hidden" id="answer-5-1">Answer: £87.50</div>
-        </div>
-        
-        <div class="question-card">
-            <div class="question-header">
-                <div class="question-number">2</div>
-                <div class="question">A business books 4 taxi rides for clients, with each ride costing £18.75. What's the total cost to the business?</div>
-            </div>
-            <button class="show-answer-btn" onclick="toggleAnswer('5-2')">Show Answer</button>
-            <div class="answer hidden" id="answer-5-2">Answer: £75.00</div>
-        </div>
-        
-        <div class="question-card">
-            <div class="question-header">
-                <div class="question-number">3</div>
-                <div class="question">During a busy hour, a taxi driver completes 5 short trips, each priced at £8.60. What's the total income from these trips?</div>
-            </div>
-            <button class="show-answer-btn" onclick="toggleAnswer('5-3')">Show Answer</button>
-            <div class="answer hidden" id="answer-5-3">Answer: £43.00</div>
-        </div>
-        
-        <div class="question-card">
-            <div class="question-header">
-                <div class="question-number">4</div>
-                <div class="question">A group of friends splits the cost of 3 taxi journeys to different venues, and each journey costs £14.99. What's the total spent on taxis?</div>
-            </div>
-            <button class="show-answer-btn" onclick="toggleAnswer('5-4')">Show Answer</button>
-            <div class="answer hidden" id="answer-5-4">Answer: £44.97</div>
-        </div>
-        
-        <div class="question-card">
-            <div class="question-header">
-                <div class="question-number">5</div>
-                <div class="question">A taxi company charges £3.20 per mile. If a taxi completes a 15-mile journey, what's the total fare?</div>
-            </div>
-            <button class="show-answer-btn" onclick="toggleAnswer('5-5')">Show Answer</button>
-            <div class="answer hidden" id="answer-5-5">Answer: £48.00</div>
-        </div>
-        
-        <div class="question-card">
-            <div class="question-header">
-                <div class="question-number">6</div>
-                <div class="question">You take 2 taxi rides from the airport, and each ride costs £27.00. What's the total cost of these two rides?</div>
-            </div>
-            <button class="show-answer-btn" onclick="toggleAnswer('5-6')">Show Answer</button>
-            <div class="answer hidden" id="answer-5-6">Answer: £54.00</div>
-        </div>
-        
-        <div class="question-card">
-            <div class="question-header">
-                <div class="question-number">7</div>
-                <div class="question">A taxi driver earns £45.50 on average per long-distance fare. If they complete 3 such fares in a day, what's their total earnings from these?</div>
-            </div>
-            <button class="show-answer-btn" onclick="toggleAnswer('5-7')">Show Answer</button>
-            <div class="answer hidden" id="answer-5-7">Answer: £136.50</div>
-        </div>
-        
-        <div class="question-card">
-            <div class="question-header">
-                <div class="question-number">8</div>
-                <div class="question">A taxi service charges a flat rate of £5.00 plus £2.50 per mile. If a passenger travels 8 miles, what's the total fare?</div>
-            </div>
-            <button class="show-answer-btn" onclick="toggleAnswer('5-8')">Show Answer</button>
-            <div class="answer hidden" id="answer-5-8">Answer: £25.00</div>
-        </div>
-        
-        <div class="question-card">
-            <div class="question-header">
-                <div class="question-number">9</div>
-                <div class="question">Over the weekend, a taxi completes 10 identical journeys, each costing £9.80. What's the total amount collected for these journeys?</div>
-            </div>
-            <button class="show-answer-btn" onclick="toggleAnswer('5-9')">Show Answer</button>
-            <div class="answer hidden" id="answer-5-9">Answer: £98.00</div>
-        </div>
-        
-        <div class="question-card">
-            <div class="question-header">
-                <div class="question-number">10</div>
-                <div class="question">A taxi firm offers a discount voucher for £4.00 off each trip. If you take 4 trips that would normally cost £11.50 each, what is your total discounted cost?</div>
-            </div>
-            <button class="show-answer-btn" onclick="toggleAnswer('5-10')">Show Answer</button>
-            <div class="answer hidden" id="answer-5-10">Answer: £30.00</div>
-        </div>
-        </div>
-        
-        <div id="topic-4" class="topic-section" style="display: none;">
-        <div class="question-card">
-            <div class="question-header">
-                <div class="question-number">1</div>
-                <div class="question">A taxi trip to the airport takes 45 minutes. If your flight departs at 9:15 AM and you need to be there 2 hours before departure, what time should the taxi pick you up?</div>
-            </div>
-            <button class="show-answer-btn" onclick="toggleAnswer('4-1')">Show Answer</button>
-            <div class="answer hidden" id="answer-4-1">Answer: 6:30 AM</div>
-        </div>
-        
-        <div class="question-card">
-            <div class="question-header">
-                <div class="question-number">2</div>
-                <div class="question">Your taxi ride to a concert venue is 1 hour 10 minutes. If the concert starts at 7:00 PM and you want to arrive 30 minutes early, what time should the taxi pick you up?</div>
-            </div>
-            <button class="show-answer-btn" onclick="toggleAnswer('4-2')">Show Answer</button>
-            <div class="answer hidden" id="answer-4-2">Answer: 5:20 PM</div>
-        </div>
-        
-        <div class="question-card">
-            <div class="question-header">
-                <div class="question-number">3</div>
-                <div class="question">A taxi trip to a friend's house usually takes 55 minutes. If you're planning to arrive at their house by 3:00 PM, what time should the taxi pick you up?</div>
-            </div>
-            <button class="show-answer-btn" onclick="toggleAnswer('4-3')">Show Answer</button>
-            <div class="answer hidden" id="answer-4-3">Answer: 2:05 PM</div>
-        </div>
-        
-        <div class="question-card">
-            <div class="question-header">
-                <div class="question-number">4</div>
-                <div class="question">The taxi ride from your hotel to a business meeting is 2 hours 5 minutes. If the meeting is scheduled for 10:45 AM, what time should the taxi pick you up?</div>
-            </div>
-            <button class="show-answer-btn" onclick="toggleAnswer('4-4')">Show Answer</button>
-            <div class="answer hidden" id="answer-4-4">Answer: 8:40 AM</div>
-        </div>
-        
-        <div class="question-card">
-            <div class="question-header">
-                <div class="question-number">5</div>
-                <div class="question">A taxi trip home from the city takes 1 hour 20 minutes. If you want to be home by 11:00 PM, what time should the taxi pick you up?</div>
-            </div>
-            <button class="show-answer-btn" onclick="toggleAnswer('4-5')">Show Answer</button>
-            <div class="answer hidden" id="answer-4-5">Answer: 9:40 PM</div>
-        </div>
-        
-        <div class="question-card">
-            <div class="question-header">
-                <div class="question-number">6</div>
-                <div class="question">Your taxi journey to a doctor's appointment takes 35 minutes. If your appointment is at 10:00 AM and you need to arrive 15 minutes early, what time should the taxi pick you up?</div>
-            </div>
-            <button class="show-answer-btn" onclick="toggleAnswer('4-6')">Show Answer</button>
-            <div class="answer hidden" id="answer-4-6">Answer: 9:10 AM</div>
-        </div>
-        
-        <div class="question-card">
-            <div class="question-header">
-                <div class="question-number">7</div>
-                <div class="question">A taxi trip to a sports event is 1 hour 40 minutes. If the event starts at 2:00 PM and you want to arrive 45 minutes before, what time should the taxi pick you up?</div>
-            </div>
-            <button class="show-answer-btn" onclick="toggleAnswer('4-7')">Show Answer</button>
-            <div class="answer hidden" id="answer-4-7">Answer: 12:35 PM</div>
-        </div>
-        
-        <div class="question-card">
-            <div class="question-header">
-                <div class="question-number">8</div>
-                <div class="question">The taxi ride to a train station is 25 minutes. If your train leaves at 6:00 AM and you need to be at the station 20 minutes before departure, what time should the taxi pick you up?</div>
-            </div>
-            <button class="show-answer-btn" onclick="toggleAnswer('4-8')">Show Answer</button>
-            <div class="answer hidden" id="answer-4-8">Answer: 5:15 AM</div>
-        </div>
-        
-        <div class="question-card">
-            <div class="question-header">
-                <div class="question-number">9</div>
-                <div class="question">A taxi trip to a shopping centre takes 50 minutes. If you plan to meet someone there at 4:30 PM, what time should the taxi pick you up?</div>
-            </div>
-            <button class="show-answer-btn" onclick="toggleAnswer('4-9')">Show Answer</button>
-            <div class="answer hidden" id="answer-4-9">Answer: 3:40 PM</div>
-        </div>
-        
-        <div class="question-card">
-            <div class="question-header">
-                <div class="question-number">10</div>
-                <div class="question">Your taxi trip to a graduation ceremony is 1 hour 55 minutes. If the ceremony begins at 1:00 PM and you need to be seated by 12:45 PM, what time should the taxi pick you up?</div>
-            </div>
-            <button class="show-answer-btn" onclick="toggleAnswer('4-10')">Show Answer</button>
-            <div class="answer hidden" id="answer-4-10">Answer: 10:50 AM</div>
-        </div>
-        </div>
-        
-        <div id="topic-3" class="topic-section" style="display: none;">
-        <div class="question-card">
-            <div class="question-header">
-                <div class="question-number">1</div>
-                <div class="question">A taxi drives 100 miles in 2.5 hours. What is its average speed?</div>
-            </div>
-            <button class="show-answer-btn" onclick="toggleAnswer('3-1')">Show Answer</button>
-            <div class="answer hidden" id="answer-3-1">Answer: 40 mph</div>
-        </div>
-        
-        <div class="question-card">
-            <div class="question-header">
-                <div class="question-number">2</div>
-                <div class="question">A taxi journey is 90 miles and takes 1 hour and 30 minutes. What is the average speed of the taxi?</div>
-            </div>
-            <button class="show-answer-btn" onclick="toggleAnswer('3-2')">Show Answer</button>
-            <div class="answer hidden" id="answer-3-2">Answer: 60 mph</div>
-        </div>
-        
-        <div class="question-card">
-            <div class="question-header">
-                <div class="question-number">3</div>
-                <div class="question">A taxi drove 42 miles in 0.75 hours. What was its average speed?</div>
-            </div>
-            <button class="show-answer-btn" onclick="toggleAnswer('3-3')">Show Answer</button>
-            <div class="answer hidden" id="answer-3-3">Answer: 56 mph</div>
-        </div>
-        
-        <div class="question-card">
-            <div class="question-header">
-                <div class="question-number">4</div>
-                <div class="question">If a taxi travelled 150 miles in 3 hours and 45 minutes, what was its average speed?</div>
-            </div>
-            <button class="show-answer-btn" onclick="toggleAnswer('3-4')">Show Answer</button>
-            <div class="answer hidden" id="answer-3-4">Answer: 40 mph</div>
-        </div>
-        
-        <div class="question-card">
-            <div class="question-header">
-                <div class="question-number">5</div>
-                <div class="question">A taxi completed a 60-mile trip in 1.25 hours. What was its average speed?</div>
-            </div>
-            <button class="show-answer-btn" onclick="toggleAnswer('3-5')">Show Answer</button>
-            <div class="answer hidden" id="answer-3-5">Answer: 48 mph</div>
-        </div>
-        
-        <div class="question-card">
-            <div class="question-header">
-                <div class="question-number">6</div>
-                <div class="question">A taxi took a passenger 35 miles in 50 minutes. What was the taxi's average speed?</div>
-            </div>
-            <button class="show-answer-btn" onclick="toggleAnswer('3-6')">Show Answer</button>
-            <div class="answer hidden" id="answer-3-6">Answer: 42 mph</div>
-        </div>
-        
-        <div class="question-card">
-            <div class="question-header">
-                <div class="question-number">7</div>
-                <div class="question">On a long fare, a taxi drove 180 miles in 3.6 hours. What was its average speed?</div>
-            </div>
-            <button class="show-answer-btn" onclick="toggleAnswer('3-7')">Show Answer</button>
-            <div class="answer hidden" id="answer-3-7">Answer: 50 mph</div>
-        </div>
-        
-        <div class="question-card">
-            <div class="question-header">
-                <div class="question-number">8</div>
-                <div class="question">A taxi completed a 80-mile trip in 1 hour and 20 minutes. What was its average speed?</div>
-            </div>
-            <button class="show-answer-btn" onclick="toggleAnswer('3-8')">Show Answer</button>
-            <div class="answer hidden" id="answer-3-8">Answer: 60 mph</div>
-        </div>
-        
-        <div class="question-card">
-            <div class="question-header">
-                <div class="question-number">9</div>
-                <div class="question">A taxi took 2.5 hours to travel 125 miles. What was its average speed?</div>
-            </div>
-            <button class="show-answer-btn" onclick="toggleAnswer('3-9')">Show Answer</button>
-            <div class="answer hidden" id="answer-3-9">Answer: 50 mph</div>
-        </div>
-        
-        <div class="question-card">
-            <div class="question-header">
-                <div class="question-number">10</div>
-                <div class="question">A taxi covered 99 miles in 1 hour and 48 minutes. What was its average speed?</div>
-            </div>
-            <button class="show-answer-btn" onclick="toggleAnswer('3-10')">Show Answer</button>
-            <div class="answer hidden" id="answer-3-10">Answer: 55 mph</div>
-        </div>
-        </div>
-        
+        <!-- Topic 1 Questions -->
         <div id="topic-1" class="topic-section">
-        
-        <div class="question-card">
-            <div class="question-header">
-                <div class="question-number">1</div>
-                <div class="question">A taxi travels 60 miles in 1 hour and 30 minutes. What is its average speed?</div>
+            <div class="question-card">
+                <div class="question-header">
+                    <div class="question-number">1</div>
+                    <div class="question">A taxi travels 90 miles in 1 hour and 45 minutes. What is its average speed?</div>
+                </div>
+                <button class="show-answer-btn" onclick="toggleAnswer('1-1')">Show Answer</button>
+                <div class="answer hidden" id="answer-1-1">Answer: 51.43 mph (approx.)</div>
             </div>
-            <button class="show-answer-btn" onclick="toggleAnswer(1)">Show Answer</button>
-            <div class="answer hidden" id="answer-1">Answer: 40 mph</div>
-        </div>
-        
-        <div class="question-card">
-            <div class="question-header">
-                <div class="question-number">2</div>
-                <div class="question">A taxi journey is 56 miles long and takes 2 hours. What is the average speed of the taxi?</div>
+            
+            <div class="question-card">
+                <div class="question-header">
+                    <div class="question-number">2</div>
+                    <div class="question">A taxi journey is 70 miles long and takes 1 hour and 10 minutes. What is the average speed of the taxi?</div>
+                </div>
+                <button class="show-answer-btn" onclick="toggleAnswer('1-2')">Show Answer</button>
+                <div class="answer hidden" id="answer-1-2">Answer: 60 mph</div>
             </div>
-            <button class="show-answer-btn" onclick="toggleAnswer(2)">Show Answer</button>
-            <div class="answer hidden" id="answer-2">Answer: 28 mph</div>
-        </div>
-        
-        <div class="question-card">
-            <div class="question-header">
-                <div class="question-number">3</div>
-                <div class="question">A taxi drove 25 miles in 30 minutes. What was its average speed?</div>
+            
+            <div class="question-card">
+                <div class="question-header">
+                    <div class="question-number">3</div>
+                    <div class="question">A taxi drove 30 miles in 40 minutes. What was its average speed?</div>
+                </div>
+                <button class="show-answer-btn" onclick="toggleAnswer('1-3')">Show Answer</button>
+                <div class="answer hidden" id="answer-1-3">Answer: 45 mph</div>
             </div>
-            <button class="show-answer-btn" onclick="toggleAnswer(3)">Show Answer</button>
-            <div class="answer hidden" id="answer-3">Answer: 50 mph</div>
-        </div>
-        
-        <div class="question-card">
-            <div class="question-header">
-                <div class="question-number">4</div>
-                <div class="question">If a taxi travelled 120 miles in 2 hours and 24 minutes, what was its average speed?</div>
+            
+            <div class="question-card">
+                <div class="question-header">
+                    <div class="question-number">4</div>
+                    <div class="question">If a taxi travelled 150 miles in 3 hours and 30 minutes, what was its average speed?</div>
+                </div>
+                <button class="show-answer-btn" onclick="toggleAnswer('1-4')">Show Answer</button>
+                <div class="answer hidden" id="answer-1-4">Answer: 42.86 mph (approx.)</div>
             </div>
-            <button class="show-answer-btn" onclick="toggleAnswer(4)">Show Answer</button>
-            <div class="answer hidden" id="answer-4">Answer: 50 mph</div>
-        </div>
-        
-        <div class="question-card">
-            <div class="question-header">
-                <div class="question-number">5</div>
-                <div class="question">A taxi completed a 47-mile trip in 1 hour and 15 minutes. What was its average speed?</div>
+            
+            <div class="question-card">
+                <div class="question-header">
+                    <div class="question-number">5</div>
+                    <div class="question">A taxi completed a 50-mile trip in 1 hour and 20 minutes. What was its average speed?</div>
+                </div>
+                <button class="show-answer-btn" onclick="toggleAnswer('1-5')">Show Answer</button>
+                <div class="answer hidden" id="answer-1-5">Answer: 37.5 mph</div>
             </div>
-            <button class="show-answer-btn" onclick="toggleAnswer(5)">Show Answer</button>
-            <div class="answer hidden" id="answer-5">Answer: 37.6 mph</div>
-        </div>
-        
-        <div class="question-card">
-            <div class="question-header">
-                <div class="question-number">6</div>
-                <div class="question">A taxi took a passenger 15 miles in 20 minutes. What was the taxi's average speed?</div>
+            
+            <div class="question-card">
+                <div class="question-header">
+                    <div class="question-number">6</div>
+                    <div class="question">A taxi took a passenger 20 miles in 25 minutes. What was the taxi's average speed?</div>
+                </div>
+                <button class="show-answer-btn" onclick="toggleAnswer('1-6')">Show Answer</button>
+                <div class="answer hidden" id="answer-1-6">Answer: 48 mph</div>
             </div>
-            <button class="show-answer-btn" onclick="toggleAnswer(6)">Show Answer</button>
-            <div class="answer hidden" id="answer-6">Answer: 45 mph</div>
-        </div>
-        
-        <div class="question-card">
-            <div class="question-header">
-                <div class="question-number">7</div>
-                <div class="question">On a long fare, a taxi drove 180 miles in 3 hours. What was its average speed?</div>
+            
+            <div class="question-card">
+                <div class="question-header">
+                    <div class="question-number">7</div>
+                    <div class="question">On a long fare, a taxi drove 200 miles in 4 hours. What was its average speed?</div>
+                </div>
+                <button class="show-answer-btn" onclick="toggleAnswer('1-7')">Show Answer</button>
+                <div class="answer hidden" id="answer-1-7">Answer: 50 mph</div>
             </div>
-            <button class="show-answer-btn" onclick="toggleAnswer(7)">Show Answer</button>
-            <div class="answer hidden" id="answer-7">Answer: 60 mph</div>
-        </div>
-        
-        <div class="question-card">
-            <div class="question-header">
-                <div class="question-number">8</div>
-                <div class="question">A taxi completed a 31-mile trip in 1 hour and 15 minutes. What was its average speed?</div>
+            
+            <div class="question-card">
+                <div class="question-header">
+                    <div class="question-number">8</div>
+                    <div class="question">A taxi completed a 45-mile trip in 1 hour and 10 minutes. What was its average speed?</div>
+                </div>
+                <button class="show-answer-btn" onclick="toggleAnswer('1-8')">Show Answer</button>
+                <div class="answer hidden" id="answer-1-8">Answer: 38.57 mph (approx.)</div>
             </div>
-            <button class="show-answer-btn" onclick="toggleAnswer(8)">Show Answer</button>
-            <div class="answer hidden" id="answer-8">Answer: 24.8 mph</div>
-        </div>
-        
-        <div class="question-card">
-            <div class="question-header">
-                <div class="question-number">9</div>
-                <div class="question">A taxi took 1 hour and 12 minutes to travel 60 miles. What was its average speed?</div>
+            
+            <div class="question-card">
+                <div class="question-header">
+                    <div class="question-number">9</div>
+                    <div class="question">A taxi took 1 hour and 5 minutes to travel 55 miles. What was its average speed?</div>
+                </div>
+                <button class="show-answer-btn" onclick="toggleAnswer('1-9')">Show Answer</button>
+                <div class="answer hidden" id="answer-1-9">Answer: 50.77 mph (approx.)</div>
             </div>
-            <button class="show-answer-btn" onclick="toggleAnswer(9)">Show Answer</button>
-            <div class="answer hidden" id="answer-9">Answer: 50 mph</div>
-        </div>
-        
-        <div class="question-card">
-            <div class="question-header">
-                <div class="question-number">10</div>
-                <div class="question">A taxi covered 60 miles in 1 hour and 36 minutes. What was its average speed?</div>
+            
+            <div class="question-card">
+                <div class="question-header">
+                    <div class="question-number">10</div>
+                    <div class="question">A taxi covered 75 miles in 1 hour and 40 minutes. What was its average speed?</div>
+                </div>
+                <button class="show-answer-btn" onclick="toggleAnswer('1-10')">Show Answer</button>
+                <div class="answer hidden" id="answer-1-10">Answer: 45 mph</div>
             </div>
-            <button class="show-answer-btn" onclick="toggleAnswer(10)">Show Answer</button>
-            <div class="answer hidden" id="answer-10">Answer: 37.5 mph</div>
-        </div>
         </div>
         
+        <!-- Topic 2 Questions -->
         <div id="topic-2" class="topic-section" style="display: none;">
-        <div class="question-card">
-            <div class="question-header">
-                <div class="question-number">1</div>
-                <div class="question">A taxi journey of 75 miles takes 1 hour and 30 minutes. What's the average speed?</div>
+            <div class="question-card">
+                <div class="question-header">
+                    <div class="question-number">1</div>
+                    <div class="question">A taxi journey of 60 miles takes 1 hour and 15 minutes. What's the average speed?</div>
+                </div>
+                <button class="show-answer-btn" onclick="toggleAnswer('2-1')">Show Answer</button>
+                <div class="answer hidden" id="answer-2-1">Answer: 48 mph</div>
             </div>
-            <button class="show-answer-btn" onclick="toggleAnswer('2-1')">Show Answer</button>
-            <div class="answer hidden" id="answer-2-1">Answer: 50 mph</div>
+            
+            <div class="question-card">
+                <div class="question-header">
+                    <div class="question-number">2</div>
+                    <div class="question">A taxi travels 100 miles in 2 hours and 30 minutes. What's the average speed?</div>
+                </div>
+                <button class="show-answer-btn" onclick="toggleAnswer('2-2')">Show Answer</button>
+                <div class="answer hidden" id="answer-2-2">Answer: 40 mph</div>
+            </div>
+            
+            <div class="question-card">
+                <div class="question-header">
+                    <div class="question-number">3</div>
+                    <div class="question">A trip in a taxi covers 50 miles and takes 1 hour and 5 minutes. What's the average speed?</div>
+                </div>
+                <button class="show-answer-btn" onclick="toggleAnswer('2-3')">Show Answer</button>
+                <div class="answer hidden" id="answer-2-3">Answer: 46.15 mph (approx.)</div>
+            </div>
+            
+            <div class="question-card">
+                <div class="question-header">
+                    <div class="question-number">4</div>
+                    <div class="question">A taxi drives 110 miles in 1 hour and 50 minutes. What's the average speed?</div>
+                </div>
+                <button class="show-answer-btn" onclick="toggleAnswer('2-4')">Show Answer</button>
+                <div class="answer hidden" id="answer-2-4">Answer: 60 mph</div>
+            </div>
+            
+            <div class="question-card">
+                <div class="question-header">
+                    <div class="question-number">5</div>
+                    <div class="question">A 70-mile taxi ride takes 1 hour and 40 minutes. What's the average speed?</div>
+                </div>
+                <button class="show-answer-btn" onclick="toggleAnswer('2-5')">Show Answer</button>
+                <div class="answer hidden" id="answer-2-5">Answer: 42 mph</div>
+            </div>
+            
+            <div class="question-card">
+                <div class="question-header">
+                    <div class="question-number">6</div>
+                    <div class="question">A taxi goes 40 miles in 50 minutes. What's the average speed?</div>
+                </div>
+                <button class="show-answer-btn" onclick="toggleAnswer('2-6')">Show Answer</button>
+                <div class="answer hidden" id="answer-2-6">Answer: 48 mph</div>
+            </div>
+            
+            <div class="question-card">
+                <div class="question-header">
+                    <div class="question-number">7</div>
+                    <div class="question">For a 130-mile trip, a taxi takes 2 hours and 10 minutes. What's the average speed?</div>
+                </div>
+                <button class="show-answer-btn" onclick="toggleAnswer('2-7')">Show Answer</button>
+                <div class="answer hidden" id="answer-2-7">Answer: 60 mph</div>
+            </div>
+            
+            <div class="question-card">
+                <div class="question-header">
+                    <div class="question-number">8</div>
+                    <div class="question">A taxi completes a 85-mile journey in 1 hour and 45 minutes. What's the average speed?</div>
+                </div>
+                <button class="show-answer-btn" onclick="toggleAnswer('2-8')">Show Answer</button>
+                <div class="answer hidden" id="answer-2-8">Answer: 48.57 mph (approx.)</div>
+            </div>
+            
+            <div class="question-card">
+                <div class="question-header">
+                    <div class="question-number">9</div>
+                    <div class="question">A 55-mile taxi trip takes 1 hour and 20 minutes. What's the average speed?</div>
+                </div>
+                <button class="show-answer-btn" onclick="toggleAnswer('2-9')">Show Answer</button>
+                <div class="answer hidden" id="answer-2-9">Answer: 41.25 mph</div>
+            </div>
+            
+            <div class="question-card">
+                <div class="question-header">
+                    <div class="question-number">10</div>
+                    <div class="question">A taxi drives 95 miles in 1 hour and 55 minutes. What's the average speed?</div>
+                </div>
+                <button class="show-answer-btn" onclick="toggleAnswer('2-10')">Show Answer</button>
+                <div class="answer hidden" id="answer-2-10">Answer: 49.57 mph (approx.)</div>
+            </div>
         </div>
         
-        <div class="question-card">
-            <div class="question-header">
-                <div class="question-number">2</div>
-                <div class="question">A taxi travels 90 miles in 2 hours and 15 minutes. What's the average speed?</div>
+        <!-- Topic 3 Questions -->
+        <div id="topic-3" class="topic-section" style="display: none;">
+            <div class="question-card">
+                <div class="question-header">
+                    <div class="question-number">1</div>
+                    <div class="question">A taxi's fuel tank holds 12 gallons. If it gets 25 miles per gallon, how far can it travel on a full tank?</div>
+                </div>
+                <button class="show-answer-btn" onclick="toggleAnswer('3-1')">Show Answer</button>
+                <div class="answer hidden" id="answer-3-1">Answer: 300 miles</div>
             </div>
-            <button class="show-answer-btn" onclick="toggleAnswer('2-2')">Show Answer</button>
-            <div class="answer hidden" id="answer-2-2">Answer: 40 mph</div>
+            
+            <div class="question-card">
+                <div class="question-header">
+                    <div class="question-number">2</div>
+                    <div class="question">A taxi driver works 8 hours a day, 5 days a week. How many hours does the driver work in a month (4 weeks)?</div>
+                </div>
+                <button class="show-answer-btn" onclick="toggleAnswer('3-2')">Show Answer</button>
+                <div class="answer hidden" id="answer-3-2">Answer: 160 hours</div>
+            </div>
+            
+            <div class="question-card">
+                <div class="question-header">
+                    <div class="question-number">3</div>
+                    <div class="question">A taxi meter charges a flat fee of £2.50 plus £1.50 per mile. How much would a 10-mile trip cost?</div>
+                </div>
+                <button class="show-answer-btn" onclick="toggleAnswer('3-3')">Show Answer</button>
+                <div class="answer hidden" id="answer-3-3">Answer: £17.50</div>
+            </div>
+            
+            <div class="question-card">
+                <div class="question-header">
+                    <div class="question-number">4</div>
+                    <div class="question">If a taxi driver earns £750 in a week and works 50 hours, what is their average hourly wage?</div>
+                </div>
+                <button class="show-answer-btn" onclick="toggleAnswer('3-4')">Show Answer</button>
+                <div class="answer hidden" id="answer-3-4">Answer: £15 per hour</div>
+            </div>
+            
+            <div class="question-card">
+                <div class="question-header">
+                    <div class="question-number">5</div>
+                    <div class="question">A taxi firm has 15 cars. If 2/3 of them are on the road, how many cars are currently available for hire?</div>
+                </div>
+                <button class="show-answer-btn" onclick="toggleAnswer('3-5')">Show Answer</button>
+                <div class="answer hidden" id="answer-3-5">Answer: 10 cars</div>
+            </div>
+            
+            <div class="question-card">
+                <div class="question-header">
+                    <div class="question-number">6</div>
+                    <div class="question">A passenger pays £28 for a taxi ride. If they tip the driver 15%, how much is the tip?</div>
+                </div>
+                <button class="show-answer-btn" onclick="toggleAnswer('3-6')">Show Answer</button>
+                <div class="answer hidden" id="answer-3-6">Answer: £4.20</div>
+            </div>
+            
+            <div class="question-card">
+                <div class="question-header">
+                    <div class="question-number">7</div>
+                    <div class="question">A taxi's tires need to be replaced every 40,000 miles. If the odometer reads 85,000 miles and the last tire change was at 60,000 miles, when is the next tire change due?</div>
+                </div>
+                <button class="show-answer-btn" onclick="toggleAnswer('3-7')">Show Answer</button>
+                <div class="answer hidden" id="answer-3-7">Answer: At 100,000 miles</div>
+            </div>
+            
+            <div class="question-card">
+                <div class="question-header">
+                    <div class="question-number">8</div>
+                    <div class="question">If a taxi completes an average of 12 fares per day, how many fares does it complete in a 6-day week?</div>
+                </div>
+                <button class="show-answer-btn" onclick="toggleAnswer('3-8')">Show Answer</button>
+                <div class="answer hidden" id="answer-3-8">Answer: 72 fares</div>
+            </div>
+            
+            <div class="question-card">
+                <div class="question-header">
+                    <div class="question-number">9</div>
+                    <div class="question">A taxi company offers a 10% discount on rides over £20. If a ride costs £25, what is the discounted price?</div>
+                </div>
+                <button class="show-answer-btn" onclick="toggleAnswer('3-9')">Show Answer</button>
+                <div class="answer hidden" id="answer-3-9">Answer: £22.50</div>
+            </div>
+            
+            <div class="question-card">
+                <div class="question-header">
+                    <div class="question-number">10</div>
+                    <div class="question">A taxi driver spends 3 hours waiting for fares and 5 hours driving fares in an 8-hour shift. What percentage of their shift is spent driving?</div>
+                </div>
+                <button class="show-answer-btn" onclick="toggleAnswer('3-10')">Show Answer</button>
+                <div class="answer hidden" id="answer-3-10">Answer: 62.5%</div>
+            </div>
         </div>
         
-        <div class="question-card">
-            <div class="question-header">
-                <div class="question-number">3</div>
-                <div class="question">A trip in a taxi covers 40 miles and takes 50 minutes. What's the average speed?</div>
+        <!-- Topic 4 Questions -->
+        <div id="topic-4" class="topic-section" style="display: none;">
+            <div class="question-card">
+                <div class="question-header">
+                    <div class="question-number">1</div>
+                    <div class="question">A taxi travels at 40 mph for 1 hour and 30 minutes. How far does it travel?</div>
+                </div>
+                <button class="show-answer-btn" onclick="toggleAnswer('4-1')">Show Answer</button>
+                <div class="answer hidden" id="answer-4-1">Answer: 60 miles</div>
             </div>
-            <button class="show-answer-btn" onclick="toggleAnswer('2-3')">Show Answer</button>
-            <div class="answer hidden" id="answer-2-3">Answer: 48 mph</div>
+            
+            <div class="question-card">
+                <div class="question-header">
+                    <div class="question-number">2</div>
+                    <div class="question">A taxi covers 75 miles at an average speed of 50 mph. How long does the journey take?</div>
+                </div>
+                <button class="show-answer-btn" onclick="toggleAnswer('4-2')">Show Answer</button>
+                <div class="answer hidden" id="answer-4-2">Answer: 1 hour 30 minutes</div>
+            </div>
+            
+            <div class="question-card">
+                <div class="question-header">
+                    <div class="question-number">3</div>
+                    <div class="question">If a taxi drives for 2 hours at 55 mph, what distance does it cover?</div>
+                </div>
+                <button class="show-answer-btn" onclick="toggleAnswer('4-3')">Show Answer</button>
+                <div class="answer hidden" id="answer-4-3">Answer: 110 miles</div>
+            </div>
+            
+            <div class="question-card">
+                <div class="question-header">
+                    <div class="question-number">4</div>
+                    <div class="question">A taxi needs to travel 120 miles. If it drives at an average speed of 40 mph, how long will the trip take?</div>
+                </div>
+                <button class="show-answer-btn" onclick="toggleAnswer('4-4')">Show Answer</button>
+                <div class="answer hidden" id="answer-4-4">Answer: 3 hours</div>
+            </div>
+            
+            <div class="question-card">
+                <div class="question-header">
+                    <div class="question-number">5</div>
+                    <div class="question">A taxi travels for 45 minutes at a speed of 60 mph. How far does it go?</div>
+                </div>
+                <button class="show-answer-btn" onclick="toggleAnswer('4-5')">Show Answer</button>
+                <div class="answer hidden" id="answer-4-5">Answer: 45 miles</div>
+            </div>
+            
+            <div class="question-card">
+                <div class="question-header">
+                    <div class="question-number">6</div>
+                    <div class="question">A taxi journey is 90 miles. If it takes 2 hours, what was the average speed?</div>
+                </div>
+                <button class="show-answer-btn" onclick="toggleAnswer('4-6')">Show Answer</button>
+                <div class="answer hidden" id="answer-4-6">Answer: 45 mph</div>
+            </div>
+            
+            <div class="question-card">
+                <div class="question-header">
+                    <div class="question-number">7</div>
+                    <div class="question">How far can a taxi travel in 2 hours and 15 minutes if its average speed is 50 mph?</div>
+                </div>
+                <button class="show-answer-btn" onclick="toggleAnswer('4-7')">Show Answer</button>
+                <div class="answer hidden" id="answer-4-7">Answer: 112.5 miles</div>
+            </div>
+            
+            <div class="question-card">
+                <div class="question-header">
+                    <div class="question-number">8</div>
+                    <div class="question">A taxi needs to cover 60 miles. If the driver wants to complete the trip in 1 hour and 15 minutes, what speed do they need to maintain?</div>
+                </div>
+                <button class="show-answer-btn" onclick="toggleAnswer('4-8')">Show Answer</button>
+                <div class="answer hidden" id="answer-4-8">Answer: 48 mph</div>
+            </div>
+            
+            <div class="question-card">
+                <div class="question-header">
+                    <div class="question-number">9</div>
+                    <div class="question">A taxi is driving from city A to city B, a distance of 180 miles. If it travels at 60 mph, how long will the journey take?</div>
+                </div>
+                <button class="show-answer-btn" onclick="toggleAnswer('4-9')">Show Answer</button>
+                <div class="answer hidden" id="answer-4-9">Answer: 3 hours</div>
+            </div>
+            
+            <div class="question-card">
+                <div class="question-header">
+                    <div class="question-number">10</div>
+                    <div class="question">What distance does a taxi cover if it travels at 30 mph for 2 hours and 40 minutes?</div>
+                </div>
+                <button class="show-answer-btn" onclick="toggleAnswer('4-10')">Show Answer</button>
+                <div class="answer hidden" id="answer-4-10">Answer: 80 miles</div>
+            </div>
         </div>
         
-        <div class="question-card">
-            <div class="question-header">
-                <div class="question-number">4</div>
-                <div class="question">A taxi drives 120 miles in 2 hours. What's the average speed?</div>
+        <!-- Topic 5 Questions -->
+        <div id="topic-5" class="topic-section" style="display: none;">
+            <div class="question-card">
+                <div class="question-header">
+                    <div class="question-number">1</div>
+                    <div class="question">A taxi driver has 7 five-pound notes and 3 ten-pound notes. How much money do they have in total?</div>
+                </div>
+                <button class="show-answer-btn" onclick="toggleAnswer('5-1')">Show Answer</button>
+                <div class="answer hidden" id="answer-5-1">Answer: £65</div>
             </div>
-            <button class="show-answer-btn" onclick="toggleAnswer('2-4')">Show Answer</button>
-            <div class="answer hidden" id="answer-2-4">Answer: 60 mph</div>
-        </div>
-        
-        <div class="question-card">
-            <div class="question-header">
-                <div class="question-number">5</div>
-                <div class="question">A 50-mile taxi ride takes 1 hour and 15 minutes. What's the average speed?</div>
+            
+            <div class="question-card">
+                <div class="question-header">
+                    <div class="question-number">2</div>
+                    <div class="question">A taxi journey costs £18.50. If you pay with a £20 note, how much change should you receive?</div>
+                </div>
+                <button class="show-answer-btn" onclick="toggleAnswer('5-2')">Show Answer</button>
+                <div class="answer hidden" id="answer-5-2">Answer: £1.50</div>
             </div>
-            <button class="show-answer-btn" onclick="toggleAnswer('2-5')">Show Answer</button>
-            <div class="answer hidden" id="answer-2-5">Answer: 40 mph</div>
-        </div>
-        
-        <div class="question-card">
-            <div class="question-header">
-                <div class="question-number">6</div>
-                <div class="question">A taxi goes 30 miles in 45 minutes. What's the average speed?</div>
+            
+            <div class="question-card">
+                <div class="question-header">
+                    <div class="question-number">3</div>
+                    <div class="question">A taxi driver starts their shift with £50 in change. After their first fare, they have £62.50. How much was the first fare?</div>
+                </div>
+                <button class="show-answer-btn" onclick="toggleAnswer('5-3')">Show Answer</button>
+                <div class="answer hidden" id="answer-5-3">Answer: £12.50</div>
             </div>
-            <button class="show-answer-btn" onclick="toggleAnswer('2-6')">Show Answer</button>
-            <div class="answer hidden" id="answer-2-6">Answer: 40 mph</div>
-        </div>
-        
-        <div class="question-card">
-            <div class="question-header">
-                <div class="question-number">7</div>
-                <div class="question">For a 140-mile trip, a taxi takes 2 hours and 20 minutes. What's the average speed?</div>
+            
+            <div class="question-card">
+                <div class="question-header">
+                    <div class="question-number">4</div>
+                    <div class="question">Three friends share a taxi that costs £27. How much does each person pay if they split the cost equally?</div>
+                </div>
+                <button class="show-answer-btn" onclick="toggleAnswer('5-4')">Show Answer</button>
+                <div class="answer hidden" id="answer-5-4">Answer: £9</div>
             </div>
-            <button class="show-answer-btn" onclick="toggleAnswer('2-7')">Show Answer</button>
-            <div class="answer hidden" id="answer-2-7">Answer: 60 mph</div>
-        </div>
-        
-        <div class="question-card">
-            <div class="question-header">
-                <div class="question-number">8</div>
-                <div class="question">A taxi completes a 72-mile journey in 1 hour and 30 minutes. What's the average speed?</div>
+            
+            <div class="question-card">
+                <div class="question-header">
+                    <div class="question-number">5</div>
+                    <div class="question">A taxi firm charges a base rate of £4.00 and £2.00 per mile. If a trip is 12 miles long, what is the total fare?</div>
+                </div>
+                <button class="show-answer-btn" onclick="toggleAnswer('5-5')">Show Answer</button>
+                <div class="answer hidden" id="answer-5-5">Answer: £28.00</div>
             </div>
-            <button class="show-answer-btn" onclick="toggleAnswer('2-8')">Show Answer</button>
-            <div class="answer hidden" id="answer-2-8">Answer: 48 mph</div>
-        </div>
-        
-        <div class="question-card">
-            <div class="question-header">
-                <div class="question-number">9</div>
-                <div class="question">A 65-mile taxi trip takes 1 hour and 15 minutes. What's the average speed?</div>
+            
+            <div class="question-card">
+                <div class="question-header">
+                    <div class="question-number">6</div>
+                    <div class="question">A taxi driver takes 5 fares in an hour, earning £8, £15, £10, £22, and £12. What is their total earnings for that hour?</div>
+                </div>
+                <button class="show-answer-btn" onclick="toggleAnswer('5-6')">Show Answer</button>
+                <div class="answer hidden" id="answer-5-6">Answer: £67</div>
             </div>
-            <button class="show-answer-btn" onclick="toggleAnswer('2-9')">Show Answer</button>
-            <div class="answer hidden" id="answer-2-9">Answer: 52 mph</div>
-        </div>
-        
-        <div class="question-card">
-            <div class="question-header">
-                <div class="question-number">10</div>
-                <div class="question">A taxi drives 80 miles in 1 hour and 20 minutes. What's the average speed?</div>
+            
+            <div class="question-card">
+                <div class="question-header">
+                    <div class="question-number">7</div>
+                    <div class="question">If a taxi consumes 1 liter of fuel every 10 kilometers, how many liters of fuel will it need for a 75-kilometer journey?</div>
+                </div>
+                <button class="show-answer-btn" onclick="toggleAnswer('5-7')">Show Answer</button>
+                <div class="answer hidden" id="answer-5-7">Answer: 7.5 liters</div>
             </div>
-            <button class="show-answer-btn" onclick="toggleAnswer('2-10')">Show Answer</button>
-            <div class="answer hidden" id="answer-2-10">Answer: 60 mph</div>
-        </div>
+            
+            <div class="question-card">
+                <div class="question-header">
+                    <div class="question-number">8</div>
+                    <div class="question">A taxi driver works 6 days a week and earns an average of £110 per day. How much do they earn in a week?</div>
+                </div>
+                <button class="show-answer-btn" onclick="toggleAnswer('5-8')">Show Answer</button>
+                <div class="answer hidden" id="answer-5-8">Answer: £660</div>
+            </div>
+            
+            <div class="question-card">
+                <div class="question-header">
+                    <div class="question-number">9</div>
+                    <div class="question">A taxi company has a fleet of 20 cars. If 1/4 of them are hybrid cars, how many hybrid taxis do they have?</div>
+                </div>
+                <button class="show-answer-btn" onclick="toggleAnswer('5-9')">Show Answer</button>
+                <div class="answer hidden" id="answer-5-9">Answer: 5 hybrid taxis</div>
+            </div>
+            
+            <div class="question-card">
+                <div class="question-header">
+                    <div class="question-number">10</div>
+                    <div class="question">A passenger needs to be at the airport in 50 minutes. The taxi ride takes 35 minutes. How much time do they have to spare before their required arrival?</div>
+                </div>
+                <button class="show-answer-btn" onclick="toggleAnswer('5-10')">Show Answer</button>
+                <div class="answer hidden" id="answer-5-10">Answer: 15 minutes</div>
+            </div>
         </div>
     </div>
     
     <script>
+        /**
+         * Toggles the visibility of a question's answer.
+         * @param {string} questionId - The ID of the answer element to toggle.
+         */
         function toggleAnswer(questionId) {
             const answer = document.getElementById('answer-' + questionId);
-            const button = answer.previousElementSibling;
-            
-            if (answer.classList.contains('hidden')) {
-                answer.classList.remove('hidden');
-                button.textContent = 'Hide Answer';
+            // Ensure the answer element exists before trying to manipulate it
+            if (answer) {
+                const button = answer.previousElementSibling; // The button is the immediate previous sibling
+                
+                if (answer.classList.contains('hidden')) {
+                    answer.classList.remove('hidden');
+                    button.textContent = 'Hide Answer';
+                } else {
+                    answer.classList.add('hidden');
+                    button.textContent = 'Show Answer';
+                }
             } else {
-                answer.classList.add('hidden');
-                button.textContent = 'Show Answer';
+                console.error('Answer element with ID ' + 'answer-' + questionId + ' not found.');
             }
         }
-        
+
+        /**
+         * Shows the questions for the selected topic and updates the active button.
+         * @param {number} topicNumber - The number of the topic to display.
+         */
         function showTopic(topicNumber) {
-            // Hide all topics
-            const topics = document.querySelectorAll('.topic-section');
-            topics.forEach(topic => topic.style.display = 'none');
-            
-            // Show selected topic
-            document.getElementById('topic-' + topicNumber).style.display = 'block';
-            
-            // Update button states
-            const buttons = document.querySelectorAll('.control-btn');
-            buttons.forEach(btn => btn.classList.remove('active-topic'));
-            event.target.classList.add('active-topic');
-            
-            // Hide all answers when switching topics
-            hideAllAnswers();
+            // Get all topic sections
+            const topicSections = document.querySelectorAll('.topic-section');
+            // Hide all topic sections
+            topicSections.forEach(section => {
+                section.style.display = 'none';
+            });
+
+            // Show the selected topic section
+            const selectedTopic = document.getElementById('topic-' + topicNumber);
+            if (selectedTopic) {
+                selectedTopic.style.display = 'block';
+            } else {
+                console.error('Topic section with ID ' + 'topic-' + topicNumber + ' not found.');
+            }
+
+            // Update active state of control buttons
+            const controlButtons = document.querySelectorAll('.control-btn');
+            controlButtons.forEach((button, index) => {
+                // The index + 1 corresponds to the topic number
+                if (index + 1 === topicNumber) {
+                    button.classList.add('active-topic');
+                } else {
+                    button.classList.remove('active-topic');
+                }
+            });
+
+            // Reset all answers to hidden when switching topics
+            const allAnswers = document.querySelectorAll('.answer');
+            allAnswers.forEach(answer => {
+                answer.classList.add('hidden');
+            });
+            // Reset all "Show Answer" buttons
+            const allAnswerButtons = document.querySelectorAll('.show-answer-btn');
+            allAnswerButtons.forEach(button => {
+                button.textContent = 'Show Answer';
+            });
         }
-        
-        function hideAllAnswers() {
-            const answers = document.querySelectorAll('.answer');
-            const buttons = document.querySelectorAll('.show-answer-btn');
-            
-            answers.forEach(answer => answer.classList.add('hidden'));
-            buttons.forEach(button => button.textContent = 'Show Answer');
-        }
+
+        // Initialize by showing Topic 1 on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            showTopic(1);
+        });
     </script>
 </body>
 </html>
